@@ -27,4 +27,4 @@ jobs:
     - name: WorldCountries Admin - Build with Maven
       run: mvn clean package --file worldcountries-admin/pom.xml
     - name: WorldCountries Admin - Deploy to Heroku
-      run: HEROKU_API_KEY=${{ secrets.HEROKU_AUTH_TOKEN }} && cd worldcountries-admin && mvn heroku:deploy --file worldcountries-admin/pom.xml
+      run: HEROKU_API_KEY=${{ secrets.HEROKU_AUTH_TOKEN }} && cd worldcountries-admin && mvn heroku:deploy
