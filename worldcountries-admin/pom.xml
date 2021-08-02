@@ -17,7 +17,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>16</java.version>
+		<java.version>1.8</java.version>
 		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 	</properties>
 
@@ -82,25 +82,6 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
-			<!-- Heroku Maven Plugin Configuration  -->
-			<plugin>
-				<groupId>com.heroku.sdk</groupId>
-				<artifactId>heroku-maven-plugin</artifactId>
-				<version>3.0.4</version>
-				<configuration>
-		          <appName>worldcountries-admin</appName>
-				  <logProgress>true</logProgress>
-		          <includeTarget>false</includeTarget>
-		          <includes>
-		              <include>${project.build.directory}/${project.build.finalName}.jar</include>
-		          </includes>
-		          <jdkVersion>${java.version}</jdkVersion>
-		          <processTypes>
-		              <web>java $JAVA_OPTS -jar ${project.build.directory}/${project.build.finalName}.jar</web>
-		          </processTypes>
-				</configuration>
-		  </plugin>
 		</plugins>
 	</build>
-
 </project>
