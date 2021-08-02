@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      run: |
+    - run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
     - name: Set up JDK 16
@@ -28,4 +28,3 @@ jobs:
       run: 
         mvn -B clean package --file worldcountries-admin/pom.xml
         HEROKU_API_KEY=${{ secrets.HEROKU_AUTH_TOKEN }} mvn -B heroku:deploy-only --file worldcountries-admin/pom.xml
-    # - name: WorldCountries API - Build with Maven
