@@ -35,4 +35,10 @@ jobs:
     - name: WorldCountries Admin - Build with Maven
       run: mvn clean package
     - name: WorldCountries Admin - Deploy to Heroku
-      run: heroku deploy:jar target/worldcountries-admin.jar --jdk 8 --app worldcountries-admin --includes
+      run: heroku deploy:jar target/worldcountries-admin.jar --jdk 8 --app worldcountries-admin
+    - name: Change working directory to worldcountries-api
+      run: cd worldcountries-api && ls -ltr
+    - name: WorldCountries API - Build with Maven
+      run: mvn clean package
+    - name: WorldCountries API - Deploy to Heroku
+      run: heroku deploy:jar target/worldcountries.jar --jdk 8 --app worldcountries
