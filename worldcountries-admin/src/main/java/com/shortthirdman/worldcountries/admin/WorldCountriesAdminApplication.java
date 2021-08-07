@@ -17,33 +17,18 @@ package com.shortthirdman.worldcountries.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
-import de.codecentric.boot.admin.server.config.AdminServerHazelcastAutoConfiguration;
 
 /**
  * @author shortthirdman-org
  *
  */
 @EnableAdminServer
-@SpringBootApplication(exclude = AdminServerHazelcastAutoConfiguration.class)
+@SpringBootApplication()
 public class WorldCountriesAdminApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WorldCountriesAdminApplication.class, args);
-	}
-	
-	@Configuration
-	public static class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
-	  @Override
-	  protected void configure(HttpSecurity http) throws Exception {
-		http.requiresChannel()
-		  .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
-		  .requiresSecure();
-	  }
 	}
 }
