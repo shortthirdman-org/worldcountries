@@ -47,9 +47,9 @@ jobs:
         curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
         heroku auth:login
         heroku plugins:install java
-    - name: Change working directory to worldcountries-api
-      run: cd worldcountries-api && ls -ltr
-    - name: WorldCountries API - Build with Maven
-      run: mvn clean package
-    - name: WorldCountries API - Deploy to Heroku
-      run: heroku deploy:jar target/worldcountries.jar --jdk 8 --app worldcountries-api
+    - name: WorldCountries API - Build and deploy to Heroku
+      run: |
+        cd worldcountries-api
+        echo "Working directory: worldcountries-api"
+        mvn clean package
+        heroku deploy:jar target/worldcountries.jar --jdk 8 --app worldcountries-api
