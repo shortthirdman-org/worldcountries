@@ -1,12 +1,12 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Java CI/CD with Maven
+name: WorldCountries API - Deploy to Heroku
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
+  # push:
+    # branches: [ main ]
+  workflow_dispatch:
     branches: [ main ]
 
 jobs:
@@ -30,12 +30,6 @@ jobs:
         curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
         heroku plugins:install java
         heroku auth:login -u ${{ secrets.HEROKU_AUTH_USER }} -p ${{ secrets.HEROKU_AUTH_TOKEN }}
-    - name: Change working directory to worldcountries-admin
-      run: cd worldcountries-admin && ls -ltr
-    - name: WorldCountries Admin - Build with Maven
-      run: mvn clean package
-    - name: WorldCountries Admin - Deploy to Heroku
-      run: heroku deploy:jar target/worldcountries-admin.jar --jdk 8 --app worldcountries-admin
     - name: Change working directory to worldcountries-api
       run: cd worldcountries-api && ls -ltr
     - name: WorldCountries API - Build with Maven

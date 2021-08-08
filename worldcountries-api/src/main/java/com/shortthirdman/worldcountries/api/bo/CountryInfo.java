@@ -48,13 +48,13 @@ public class CountryInfo {
 	@Column(name = "independent_status")
 	private String independentStatus;
 
-	@Column(name = "continent_region")
+	@Column(name = "continental_region")
 	private String continentRegion;
 
-	@Column(name = "subcontinent_region")
+	@Column(name = "subcontinental_region")
 	private String subContinentalRegion;
 
-	@Column(name = "administrative_langs")
+	@Column(name = "administrative_languages")
 	private String administrativeLangs;
 
 	@Column(name = "area_sqkm")
@@ -63,7 +63,7 @@ public class CountryInfo {
 	@Column(name = "largest_cities")
 	private String largestCities;
 
-	@Column(name = "demonym")
+	@Column(name = "demonym_name")
 	private String demonym;
 
 	@Column(name = "currency_name")
@@ -74,6 +74,12 @@ public class CountryInfo {
 
 	@Column(name = "driving_side")
 	private String drivingSide;
+
+	@Column(name = "time_zones")
+	private String timeZones;
+
+	@Column(name = "calling_codes")
+	private String callingCodes;
 
 	/**
 	 * @return the shortName
@@ -299,6 +305,34 @@ public class CountryInfo {
 		this.drivingSide = drivingSide;
 	}
 
+	/**
+	 * @return the timeZones
+	 */
+	public String getTimeZones() {
+		return timeZones;
+	}
+
+	/**
+	 * @param timeZones the timeZones to set
+	 */
+	public void setTimeZones(String timeZones) {
+		this.timeZones = timeZones;
+	}
+
+	/**
+	 * @return the callingCodes
+	 */
+	public String getCallingCodes() {
+		return callingCodes;
+	}
+
+	/**
+	 * @param callingCodes the callingCodes to set
+	 */
+	public void setCallingCodes(String callingCodes) {
+		this.callingCodes = callingCodes;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -334,6 +368,10 @@ public class CountryInfo {
 		builder.append(currenyCode);
 		builder.append(", drivingSide=");
 		builder.append(drivingSide);
+		builder.append(", timeZones=");
+		builder.append(timeZones);
+		builder.append(", callingCodes=");
+		builder.append(callingCodes);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -77,6 +77,12 @@ public class CountryInfoDetail implements Serializable {
 	@JsonProperty("driving")
 	private String drivingSide;
 
+	@JsonProperty("timeZones")
+	private List<String> timeZones;
+
+	@JsonProperty("callingCodes")
+	private List<String> callingCodes;
+
 	/**
 	 * @return the shortName
 	 */
@@ -301,6 +307,34 @@ public class CountryInfoDetail implements Serializable {
 		this.drivingSide = drivingSide;
 	}
 
+	/**
+	 * @return the timeZones
+	 */
+	public List<String> getTimeZones() {
+		return timeZones;
+	}
+
+	/**
+	 * @param timeZones the timeZones to set
+	 */
+	public void setTimeZones(List<String> timeZones) {
+		this.timeZones = timeZones;
+	}
+
+	/**
+	 * @return the callingCodes
+	 */
+	public List<String> getCallingCodes() {
+		return callingCodes;
+	}
+
+	/**
+	 * @param callingCodes the callingCodes to set
+	 */
+	public void setCallingCodes(List<String> callingCodes) {
+		this.callingCodes = callingCodes;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -336,6 +370,10 @@ public class CountryInfoDetail implements Serializable {
 		builder.append(currenyCode);
 		builder.append(", drivingSide=");
 		builder.append(drivingSide);
+		builder.append(", timeZones=");
+		builder.append(timeZones);
+		builder.append(", callingCodes=");
+		builder.append(callingCodes);
 		builder.append("]");
 		return builder.toString();
 	}

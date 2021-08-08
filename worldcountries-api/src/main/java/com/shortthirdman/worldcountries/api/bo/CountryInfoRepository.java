@@ -40,7 +40,7 @@ public class CountryInfoRepository {
 
 	public CountryInfo getCountryByName(String name) throws Exception {
 		LOGGER.info("CountryInfoRepository::getCountryByName Started");
-		Query q = em.createNativeQuery("SELECT * FROM world_countries WHERE short_name = ?1", CountryInfo.class).setParameter(1, name);
+		Query q = em.createNativeQuery("SELECT * FROM public.world_countries WHERE short_name = ?1", CountryInfo.class).setParameter(1, name);
 		CountryInfo entity = (CountryInfo) q.getSingleResult();
 		LOGGER.info("CountryInfoRepository::getCountryByName Completed");
 		return entity;
@@ -48,7 +48,7 @@ public class CountryInfoRepository {
 	
 	public CountryInfo getCountryByAlpha2(String code) throws Exception {
 		LOGGER.info("CountryInfoRepository::getCountryByAlpha2 Started");
-		Query q = em.createNativeQuery("SELECT * FROM world_countries WHERE alpha2_code = ?1", CountryInfo.class).setParameter(1, code);
+		Query q = em.createNativeQuery("SELECT * FROM public.world_countries WHERE alpha2_code = ?1", CountryInfo.class).setParameter(1, code);
 		CountryInfo entity = (CountryInfo) q.getSingleResult();
 		LOGGER.info("CountryInfoRepository::getCountryByAlpha2 Completed");
 		return entity;
@@ -56,7 +56,7 @@ public class CountryInfoRepository {
 	
 	public CountryInfo getCountryByAlpha3(String code) throws Exception {
 		LOGGER.info("CountryInfoRepository::getCountryByAlpha3 Started");
-		Query q = em.createNativeQuery("SELECT * FROM world_countries WHERE alpha3_code = ?1", CountryInfo.class).setParameter(1, code);
+		Query q = em.createNativeQuery("SELECT * FROM public.world_countries WHERE alpha3_code = ?1", CountryInfo.class).setParameter(1, code);
 		CountryInfo entity = (CountryInfo) q.getSingleResult();
 		LOGGER.info("CountryInfoRepository::getCountryByAlpha3 Completed");
 		return entity;
@@ -64,7 +64,7 @@ public class CountryInfoRepository {
 	
 	public Collection<CountryInfo> getCountryByContinent(String region) throws Exception {
 		LOGGER.info("CountryInfoRepository::getCountryByContinent Started");
-		Query q = em.createNativeQuery("SELECT * FROM world_countries WHERE continent_region = ?1 ORDER BY short_name", CountryInfo.class).setParameter(1, region);
+		Query q = em.createNativeQuery("SELECT * FROM public.world_countries WHERE continental_region = ?1 ORDER BY short_name", CountryInfo.class).setParameter(1, region);
 		Collection<CountryInfo> entities = q.getResultList();
 		LOGGER.info("CountryInfoRepository::getCountryByContinent Completed");
 		return entities;
@@ -72,7 +72,7 @@ public class CountryInfoRepository {
 	
 	public Collection<CountryInfo> getAllCountries() throws Exception {
 		LOGGER.info("CountryInfoRepository::getAllCountries Started");
-		Query q = em.createNativeQuery("SELECT * FROM world_countries ORDER BY short_name", CountryInfo.class);
+		Query q = em.createNativeQuery("SELECT * FROM public.world_countries ORDER BY short_name", CountryInfo.class);
 		Collection<CountryInfo> entities = q.getResultList();
 		LOGGER.info("CountryInfoRepository::getAllCountries Completed");
 		return entities;

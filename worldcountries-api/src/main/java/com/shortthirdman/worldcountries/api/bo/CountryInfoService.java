@@ -16,6 +16,7 @@
 package com.shortthirdman.worldcountries.api.bo;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -83,11 +84,16 @@ public class CountryInfoService {
 			bean.setCurrencyName(entity.getCurrencyName());
 			bean.setCurrenyCode(entity.getCurrenyCode());
 			bean.setDrivingSide(entity.getDrivingSide());
+			bean.setTimeZones(toList(entity.getTimeZones()));
+			bean.setCallingCodes(toList(entity.getCallingCodes()));
 		}
 		return bean;
 	}
 	
 	private List<String> toList(String source) {
-		return Stream.of(source.split(",")).map(String::trim).collect(Collectors.toList());
+		if (source != null) {
+			return Stream.of(source.split(",")).map(String::trim).collect(Collectors.toList());
+		}
+		return Collections.emptyList();
 	}
 }
