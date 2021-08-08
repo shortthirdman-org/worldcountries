@@ -41,4 +41,4 @@ jobs:
     - name: WorldCountries API - Build with Maven
       run: mvn clean package
     - name: WorldCountries API - Deploy to Heroku
-      run: heroku deploy:jar target/worldcountries.jar --jdk 8 --app worldcountries
+      run: heroku deploy:jar target/worldcountries.jar --jdk 8 --app worldcountries-api
