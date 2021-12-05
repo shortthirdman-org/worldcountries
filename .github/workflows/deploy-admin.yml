@@ -50,5 +50,5 @@ jobs:
       run: |
         cd worldcountries-admin
         echo "Working directory: worldcountries-admin"
-        mvn –q clean package
+        mvn --quiet clean package
         heroku deploy:jar target/worldcountries-admin.jar --jdk 8 --app worldcountries-admin
